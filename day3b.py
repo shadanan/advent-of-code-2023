@@ -17,11 +17,11 @@ class PartNumber:
 
 
 def find_maybe_part_numbers(lines: list[str]) -> list[PartNumber]:
-    nums = []
+    part_numbers = []
     for row, line in enumerate(lines):
         for match in NUMBER_PATERN.finditer(line):
-            nums.append(PartNumber(row, match.start(), match.end(), int(match.group())))
-    return nums
+            part_numbers.append(PartNumber(row, match.start(), match.end(), int(match.group())))
+    return part_numbers
 
 def get_neighbor_positions(lines, part_number: PartNumber) -> list[tuple[int, int]]:
     neighbors = [
