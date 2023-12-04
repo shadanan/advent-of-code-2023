@@ -16,12 +16,8 @@ for line in lines:
         if max_colors[color] < count:
             max_colors[color] = count
     
-    # Compute the product of all values
-    power = 1    
-    for value in max_colors.values():
-        power *= value
-    
-    sum_power += power
+    # Compute the sum of product of all values
+    sum_power += prod(max_colors.values())
     
 print(sum_power)
 
