@@ -9,7 +9,7 @@ for line in lines:
     game_id = int(game_str.split()[-1])
     game = remainder.replace("; ", ", ").split(", ")
     
-    max_colors = {'red': 0, 'green': 0, 'blue': 0}
+    max_colors = defaultdict(int)
     for color_count in game:
         count, color = color_count.split()
         count = int(count)
