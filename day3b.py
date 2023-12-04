@@ -1,12 +1,13 @@
 #!/usr/bin/env python3
-from dataclasses import dataclass
 import re
 from collections import defaultdict
+from dataclasses import dataclass
 
 NUMBER_PATERN = re.compile(r"\d+")
 
-with open("input3a.txt", "r") as fp:
+with open("input3.txt", "r") as fp:
     lines = fp.read().strip().splitlines()
+
 
 @dataclass
 class PartNumber:
@@ -20,8 +21,11 @@ def find_maybe_part_numbers(lines: list[str]) -> list[PartNumber]:
     part_numbers = []
     for row, line in enumerate(lines):
         for match in NUMBER_PATERN.finditer(line):
-            part_numbers.append(PartNumber(row, match.start(), match.end(), int(match.group())))
+            part_numbers.append(
+                PartNumber(row, match.start(), match.end(), int(match.group()))
+            )
     return part_numbers
+
 
 def get_neighbor_positions(lines, part_number: PartNumber) -> list[tuple[int, int]]:
     neighbors = [
@@ -39,7 +43,8 @@ def get_neighbor_positions(lines, part_number: PartNumber) -> list[tuple[int, in
             valid_neighbors.append((r, c))
     return valid_neighbors
 
-if __name__ == '__main__':
+
+if __name__ == "__main__":
     neighbor_part_number_map = defaultdict(list)
     for maybe_part_number in find_maybe_part_numbers(lines):
         neighbors = get_neighbor_positions(lines, maybe_part_number)
