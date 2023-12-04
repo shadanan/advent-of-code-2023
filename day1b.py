@@ -1,8 +1,6 @@
 #!/usr/bin/env python3
 
-# sjtw2on1esi6x6cqbv4
-
-with open("input1a.txt") as f:
+with open("input1.txt") as f:
     lines = (
         f.read()
         .replace("zero", "ze0ro")

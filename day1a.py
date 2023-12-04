@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 
-with open("input1a.txt") as f:
+with open("input1.txt") as f:
     lines = f.read().splitlines()
 
 calibration_sum = 0
