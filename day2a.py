@@ -6,7 +6,7 @@ RULES = {
     "blue": 14,
 }
 
-with open("input2a.txt", "r") as fp:
+with open("input2.txt", "r") as fp:
     lines = fp.read().strip().splitlines()
 
 
@@ -26,12 +26,4 @@ for line in lines:
     game = remainder.replace("; ", ", ").split(", ")
     if is_possible(game):
         total += game_id
-
-    # for roll in game:
-    #     value, color = roll.split()
-    #     value = int(value)
-    #     if value > RULES[color]:
-    #         break
-    # else:
-    #     total += game_id
 print(total)
