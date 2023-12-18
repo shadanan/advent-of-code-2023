@@ -38,8 +38,7 @@ def get_hand_type(hand: str) -> int:
     if 3 in frequencies:
         return THREE_OF_A_KIND
     if 2 in frequencies:
-        pair_count = set(Counter(list(counter.values())).values())
-        if 2 in pair_count:
+        if len(counter) == 3:
             return TWO_PAIR
         return ONE_PAIR
     return HIGH_CARD
